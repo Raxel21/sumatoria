@@ -1,5 +1,6 @@
 package sumatoria;
 
+import java.util.*;
 /**
  *
  * @author Raxel21
@@ -90,7 +91,43 @@ public class userInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        // Obtenemos el valor del textfiel y lo convertimos a número
+        int entrada = Integer.parseInt(jTextField1.getText());
+        /*
+         * Obtenemos el valor absoluto de entrada en caso sea un número negativo
+         * De esta manera evitamos errores en el bucle for
+        */
+        int entradaAbs = Math.abs(entrada);
+        // Iniciamos la variable la cual almacenara la sumatoria de los numeros
+        int sumatoria = 0;
+        // Instancia de ArrayList para almacenar los números
+        ArrayList<Integer> numeros = new ArrayList();
+        
+        /*
+         * Asignamos el valor de la entrada a la variable i
+         * Hacemos esto para poder decrementar el valor 
+         * Y así poder encontrar los numeros posteriores a el
+         *
+        */
+        for ( int i = entradaAbs; i > 0; i-- ) {
+            
+            // Añadimos los numeros posteriores a entradaAbs al ArrayList numeros
+            numeros.add(i);
+            
+        }
+        
+        /*
+         * Descomponemos el array que contiene los números         
+        */
+        for (int acumulador: numeros) {
+            // Acumulador tiene el valor de los números del ArrayList 
+            sumatoria += acumulador;
+            
+        }
+        
+        jTextField2.setText(String.valueOf(sumatoria));
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
